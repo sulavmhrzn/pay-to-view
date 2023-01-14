@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block title %}Posts List{% endblock title %} <br />
+{% block content %}
+
+<p>
+  {% for tag in tags %}
+  <a class="tag" href="{% url 'blog:posts_list_tag' tag.slug%}"> {{tag}} </a>
+  {% endfor %}
+</p>
+
+{% if tag %}
+<h3>Found {{posts|length}} post{{posts|length|pluralize}} for {{tag}}</h3>
+{% endif %}
+<ul>
+  {% for post in posts %}
+  <li>
+    <a href="{% url 'blog:post_detail' post.pk post.slug%}"
+      >{{post}} - {% if post.is_paid %}Paid{% else %}Free{% endif %}</a
+    >
+  </li>
+  {% endfor %}
+</ul>
+{% endblock content %}

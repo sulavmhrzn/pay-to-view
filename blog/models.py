@@ -33,7 +33,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     objects = models.Manager()
-    paid_manager = PublishedManager()
+    published_manager = PublishedManager()
 
     def __str__(self):
         return self.title
