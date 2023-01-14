@@ -30,6 +30,7 @@ def payment_process(request):
             "client_reference_id": request.user.id,
             "success_url": success_url,
             "cancel_url": cancel_url,
+            "customer_email": request.user.email,
             "line_items": [
                 {
                     "price_data": {
@@ -44,6 +45,7 @@ def payment_process(request):
 
         session = stripe.checkout.Session.create(**session_data)
         return redirect(session.url, code=303)
+    return redirect("payment:membership_list")
 
 
 def completed(request):
