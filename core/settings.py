@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "blog.apps.BlogConfig",
     "account.apps.AccountConfig",
+    "payment.apps.PaymentConfig",
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,5 @@ LOGIN_URL = "account:login"
 LOGIN_REDIRECT_URL = "account:dashboard"
 
 MAX_PAID_POSTS = 3
+STRIPE_SECRET_KEY = "sk_test_51MPlUJE9tlv0SAOzUa4Dkt3WGMCZ2EwANJ8nZAXt0hR4qVauyGdkApdeKtOthlpL0SMo3LpdOl8mgfzHwKu4CYQ700O6ulbo4o"
+STRIPE_API_VERSION = "2022-08-01"

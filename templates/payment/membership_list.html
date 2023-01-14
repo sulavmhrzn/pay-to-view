@@ -1,0 +1,15 @@
+{% extends 'base.html' %} {% block title %}Membership{% endblock title %}
+<br />
+{% block content %}
+<h1>Membership</h1>
+{% for m in membership %}
+<article>
+  <h1>{{m}}</h1>
+  <p>{{m.description}}</p>
+  <p>Price: ${{m.price}}</p>
+  <form action="{% url 'payment:payment_process' %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Purchase" />
+  </form>
+</article>
+{% endfor %} {% endblock content %}

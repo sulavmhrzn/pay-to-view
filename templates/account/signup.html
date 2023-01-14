@@ -1,8 +1,12 @@
 {% extends 'base.html' %} {% block title %}Signup{% endblock title %}
 <br />
 {% block content %}
-<form method="post">
-  {{form.as_p}} {% csrf_token %}
-  <input type="submit" value="Signup" />
-</form>
+<fieldset>
+  <legend>Signup</legend>
+
+  <form method="post">
+    {{form.as_p}} {% csrf_token %}
+    <input type="submit" value="Signup" />
+  </form>
+</fieldset>
 {% endblock content %}
