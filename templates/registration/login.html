@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block title %}Login{% endblock title %} <br />
+{% block content %}
+<fieldset>
+  <legend>Login</legend>
+  <form method="post">
+    {{form.as_p}} {% csrf_token %}
+    <input type="submit" value="Login" />
+  </form>
+</fieldset>
+{% endblock content %}
