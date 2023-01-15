@@ -1,9 +1,13 @@
+import io
 from decimal import Decimal
 
 import stripe
+import weasyprint
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from django.template.loader import render_to_string
 from django.urls import reverse
 
 from .models import Membership
@@ -54,3 +58,9 @@ def completed(request):
 
 def canceled(request):
     return render(request, "payment/canceled.html")
+
+
+def generate_pdf_view(request):
+    membership = Membership.objects.first()
+    html_string = render_to_string("payment/pdf.html", {"membership": membership})
+    html = weasyprint.HTML(string=html_string).write_pdf()

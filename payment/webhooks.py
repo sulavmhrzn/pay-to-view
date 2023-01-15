@@ -6,6 +6,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 from account.models import Profile
 
+from .tasks import send_pdf
+
 
 @csrf_exempt
 def stripe_webhook(request):
@@ -28,5 +30,5 @@ def stripe_webhook(request):
 
             profile.has_membership = True
             profile.save()
-
+            send_pdf(profile.user.email)
     return HttpResponse(status=200)

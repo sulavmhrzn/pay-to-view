@@ -128,6 +128,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_URL = "account:login"
 LOGIN_REDIRECT_URL = "account:dashboard"
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 MAX_PAID_POSTS = 3
 

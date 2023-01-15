@@ -20,6 +20,7 @@
       <a href="{% url 'account:login' %}">Login</a>
       <a href="{% url 'account:signup' %}">Signup</a>
       {% endif %}
+      <a href="{% url 'payment:membership_list' %}">Membership</a>
     </nav>
     {% if messages %} {% for message in messages %}
     <li class="alert">{{message}}</li>
