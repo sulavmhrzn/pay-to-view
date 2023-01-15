@@ -26,7 +26,11 @@ def post_detail(request, slug=None, id=None):
     post = get_object_or_404(Post, is_published=True, slug=slug, id=id)
     tracker = Tracker(request)
 
-    # Check if the user has purchased a membership
+    # Check if the user is authenticated has purchased a membership
+    if request.user.is_authenticated and request.user.profile.has_membership:
+        return render(request, "blog/detail.html", context={"post": post})
+
+    # check if post is paid and length of viewed_posts session is greater than 3
     if post.is_paid and len(tracker) > settings.MAX_PAID_POSTS:
         return render(request, "blog/limit_exceeded.html")
     tracker.add(post.id)

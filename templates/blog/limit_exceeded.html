@@ -2,7 +2,8 @@
 <br />
 {% block content %}
 <h1>
-  Your free limit has been reached. Please purchase a one-time membership to
-  gain full access to the posts.
+  Your free limit has been reached. Please purchase a one-time
+  <a href="{% url 'payment:membership_list' %}">membership</a> to gain full
+  access to the posts.
 </h1>
 {% endblock content %}
