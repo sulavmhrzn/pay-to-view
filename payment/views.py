@@ -58,9 +58,3 @@ def completed(request):
 
 def canceled(request):
     return render(request, "payment/canceled.html")
-
-
-def generate_pdf_view(request):
-    membership = Membership.objects.first()
-    html_string = render_to_string("payment/pdf.html", {"membership": membership})
-    html = weasyprint.HTML(string=html_string).write_pdf()

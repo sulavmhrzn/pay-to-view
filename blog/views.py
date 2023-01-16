@@ -31,7 +31,7 @@ def post_detail(request, slug=None, id=None):
         return render(request, "blog/detail.html", context={"post": post})
 
     # check if post is paid and length of viewed_posts session is greater than 3
-    if post.is_paid and len(tracker) > settings.MAX_PAID_POSTS:
+    if post.is_paid and len(tracker) >= settings.MAX_PAID_POSTS:
         return render(request, "blog/limit_exceeded.html")
     tracker.add(post.id)
 

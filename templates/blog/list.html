@@ -1,5 +1,8 @@
 {% extends 'base.html' %} {% block title %}Posts List{% endblock title %} <br />
 {% block content %}
+<span class="remaining">
+  You have {{remaining}} free post{{remaining|pluralize}} left for this week.
+</span>
 
 <p>
   {% for tag in tags %}

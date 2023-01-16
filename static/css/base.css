@@ -5,3 +5,12 @@
     margin: 5px;
     list-style-type: none;
   }
+
+.remaining{
+  padding: 2px;
+  text-align: center;
+  border-bottom: 2px solid red;
+  border-top: 2px solid red;
+  margin-top: 5px;
+
+}
