@@ -3,5 +3,14 @@
 {% block content %}
 <article>
   <h1>{{post.title}}</h1>
+  <p>
+    Tag:
+    <a class="tag" href="{% url 'blog:posts_list_tag' post.tag.slug%}">
+      {{post.tag}}
+    </a>
+  </p>
+  <p>Author: {{post.author}}</p>
+  <p>Created at: {{post.created_at|date}}</p>
+  <p>{{post.content}}</p>
 </article>
 {% endblock content %}
